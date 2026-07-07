@@ -1,0 +1,9 @@
+SetResolution(5, 5, 50, true);
+SetColor(1.0, 1.0, 1.0);
+
+DrawPixels(1,1,  2,1,  3,1);
+DrawPixels(1,2,  3,2);
+DrawPixels(1,3,  2,3,  3,3);
+
+
+

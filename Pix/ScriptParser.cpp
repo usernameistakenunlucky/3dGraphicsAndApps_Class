@@ -5,6 +5,8 @@
 #include <XEngine.h>
 #include <sstream>
 
+#include <algorithm>
+
 namespace
 {
 	auto TokenizeString(const std::string& inputString, const std::string& delimiters)
@@ -38,8 +40,12 @@ void ScriptParser::ParseScript(const std::string& script)
 {
 	mStatements.clear();
 
+	// Replace all ";" with "\n" so i can write multiple commands in one line
+	std::string normalizedScript = script;
+	std::replace(normalizedScript.begin(), normalizedScript.end(), ';', '\n');
+
 	// Separate script into separate lines in a list
-	auto scriptLines = TokenizeString(script, "\n");
+	auto scriptLines = TokenizeString(normalizedScript, "\n");
 
 	// For each command line, split out keyword and parameters
 	for (auto& line : scriptLines)
