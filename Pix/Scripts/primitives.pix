@@ -1,0 +1,19 @@
+SetResolution(30, 30, 20 true);
+
+BeginDraw(point);
+Vertex(2, 2,   1,0,0);
+Vertex(3 ,3,   0,1,0);
+Vertex(7, 7,   0,0,1);
+EndDraw();
+
+BeginDraw(line);
+Vertex(10,2,   1,0,0);
+Vertex(15,15,   0,0,1);
+EndDraw();
+
+SetFillMode(solid);
+BeginDraw(triangle);
+Vertex(15,2,   1,0,0);
+Vertex(30,15,   0,0,1);
+Vertex(18,13,   0,1,0);
+EndDraw();

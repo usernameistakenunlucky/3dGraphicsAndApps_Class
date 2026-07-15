@@ -1,12 +1,17 @@
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdBeginDraw.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdBeginDraw.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdDrawPixel.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdDrawPixel.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdDrawPixels.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdDrawPixels.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdEndDraw.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdEndDraw.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetColor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetColor.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetFillMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetFillMode.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetResolution.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetResolution.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVarFloat.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVarFloat.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVertex.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVertex.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CommandDictionary.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CommandDictionary.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Graphics.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Graphics.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\MathHelper.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\MathHelper.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\PixEditor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\PixEditor.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\PrimitivesManager.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\PrimitivesManager.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Rasterizer.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Rasterizer.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\ScriptParser.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\ScriptParser.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\TextEditor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\TextEditor.obj
