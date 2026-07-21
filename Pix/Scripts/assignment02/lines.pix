@@ -1,0 +1,21 @@
+SetResolution(30, 30, 20 true);
+
+BeginDraw(line);
+Vertex(10,0,   1,0,0);
+Vertex(15,12,   0,0,1);
+EndDraw();
+
+BeginDraw(line);
+Vertex(5,17,   1,0,0);
+Vertex(15,12,   0,0,1);
+EndDraw();
+
+BeginDraw(line);
+Vertex(26,13,   1,0,0);
+Vertex(15,12,   0,0,1);
+EndDraw();
+
+BeginDraw(line);
+Vertex(18,15,   1,0,0);
+Vertex(15,12,   0,0,1);
+EndDraw();
