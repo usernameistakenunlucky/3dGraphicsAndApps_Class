@@ -1,10 +1,13 @@
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Clipper.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Clipper.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdBeginDraw.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdBeginDraw.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdDrawPixel.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdDrawPixel.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdDrawPixels.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdDrawPixels.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdEndDraw.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdEndDraw.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetClipping.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetClipping.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetColor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetColor.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetFillMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetFillMode.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetResolution.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetResolution.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetViewport.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetViewport.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVarFloat.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVarFloat.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVertex.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVertex.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CommandDictionary.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CommandDictionary.obj

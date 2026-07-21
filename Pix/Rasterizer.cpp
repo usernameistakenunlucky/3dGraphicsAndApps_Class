@@ -23,7 +23,7 @@ void DrawLineVertical(const Vertex& low, const Vertex& high)
 	int endY = static_cast<int>(high.pos.y);
 	for (int y = startY; y <= endY; y++)
 	{
-		float t = static_cast<float>(y) / dy;
+		float t = static_cast<float>(y - startY) / dy;
 		Vertex v = LerpVertex(low, high, t);
 		Rasterizer::Get()->DrawPoint(v);
 	}

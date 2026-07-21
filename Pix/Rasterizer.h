@@ -29,5 +29,5 @@ private:
 	void DrawFilledTriangle(const Vertex& a, const Vertex& b, const Vertex& c);
 
 	X::Color mColor = X::Colors::White;
-	FillMode mFillMode = FillMode::WireFrame;
+	FillMode mFillMode = FillMode::Solid;
 };
