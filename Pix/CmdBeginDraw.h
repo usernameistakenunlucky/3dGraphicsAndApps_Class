@@ -14,10 +14,11 @@ public:
 
 	const char* GetDescription() override
 	{
-		const char* theKing = 	"BeginDraw(topology)\n"
+		const char* theKing = "BeginDraw(topology)\n"
 			"\n"
 			"- starts storing vertices\n"
-			"- topology (point, line, triangle)";
+			"- topology (point, line, triangle)"
+			"- (optional) apply transform to apply 3D pipeline transformation to vertices";
 
 		return theKing;
 	}

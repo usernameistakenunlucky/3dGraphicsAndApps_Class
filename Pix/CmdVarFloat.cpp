@@ -1,5 +1,4 @@
 #include "CmdVarFloat.h"
-
 #include "VariableCache.h"
 
 bool CmdVarFloat::Execute(const std::vector<std::string>& params)

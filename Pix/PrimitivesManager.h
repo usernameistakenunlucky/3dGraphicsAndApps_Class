@@ -13,22 +13,23 @@ enum class Topology
 	Triangle,
 };
 
+enum class CullMode
+{
+	None, // no culling used
+	Back, // cull anything facing away from the camera
+	Front, // cull anything facing the camera
+};
+
 class PrimitivesManager
 {
-private:
-	PrimitivesManager();
-
-	std::vector<Vertex> _vertexBuffer;
-	Topology _topology = Topology::Point;
-	bool _drawBegin = false;
-
-
-
 public:
 	static PrimitivesManager* Get();
 
+	void OnNewFrame();
+	void SetCullMode(CullMode mode);
+
 	// Start Acceopting Vertices
-	bool BeginDraw(Topology topology);
+	bool BeginDraw(Topology topology, bool applyTransform);
 
 	// ass vertices to the manager
 	void AddVertex(const Vertex& v);
@@ -37,4 +38,12 @@ public:
 	// by topology, to the resterizer
 	void EndDraw();
 
+private:
+	PrimitivesManager();
+
+	std::vector<Vertex> _vertexBuffer;
+	Topology _topology = Topology::Point;
+	CullMode mCullMode = CullMode::None;
+	bool _drawBegin = false;
+	bool mApplyTransform = false;
 };
