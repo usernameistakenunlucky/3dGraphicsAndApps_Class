@@ -3,6 +3,7 @@
 #include "Clipper.h"
 #include "Camera.h"
 #include "MatrixStack.h"
+#include "LightManager.h"
 
 extern float gResolutionX;
 extern float gResolutionY;
@@ -110,75 +111,115 @@ void PrimitivesManager::EndDraw()
 	//Matrix4 matFinal = matWorld * matView* matProj* matScreen;
 	Matrix4 matNDCSpace = matWorld * matView * matProj;
 
-		switch (_topology)
+	ShadeMode shadeMode = Rasterizer::Get()->GetShadeMode();
+
+	switch (_topology)
+	{
+	case Topology::Point:
+	{
+		for (uint32_t i = 0; i < _vertexBuffer.size(); i++)
 		{
-		case Topology::Point:
-		{
-			for (uint32_t i = 0; i < _vertexBuffer.size(); i++)
+			if (!Clipper::Get()->ClipPoint(_vertexBuffer[i]))
 			{
-				if (!Clipper::Get()->ClipPoint(_vertexBuffer[i]))
-				{
-					Rasterizer::Get()->DrawPoint(_vertexBuffer[i]);
-				}
+				Rasterizer::Get()->DrawPoint(_vertexBuffer[i]);
 			}
 		}
-		break;
-		case Topology::Line:
+	}
+	break;
+	case Topology::Line:
+	{
+		for (uint32_t i = 1; i < _vertexBuffer.size(); i += 2)
 		{
-			for (uint32_t i = 1; i < _vertexBuffer.size(); i += 2)
+			if (!Clipper::Get()->ClipLine(_vertexBuffer[i - 1], _vertexBuffer[i]))
 			{
-				if (!Clipper::Get()->ClipLine(_vertexBuffer[i - 1], _vertexBuffer[i]))
-				{
-					Rasterizer::Get()->DrawLine(_vertexBuffer[i - 1], _vertexBuffer[i]);
-				}
+				Rasterizer::Get()->DrawLine(_vertexBuffer[i - 1], _vertexBuffer[i]);
 			}
 		}
-		break;
-		case Topology::Triangle:
+	}
+	break;
+	case Topology::Triangle:
+	{
+		for (uint32_t i = 2; i < _vertexBuffer.size(); i += 3)
 		{
-			for (uint32_t i = 2; i < _vertexBuffer.size(); i += 3)
+			std::vector<Vertex> triangle = {
+				_vertexBuffer[i - 2],
+				_vertexBuffer[i - 1],
+				_vertexBuffer[i]
+			};
+			if (mApplyTransform)
 			{
-				std::vector<Vertex> triangle = {
-					_vertexBuffer[i - 2],
-					_vertexBuffer[i - 1],
-					_vertexBuffer[i]
-				};
-				if (mApplyTransform)
+				// LOCAL SPACE ======================================================================
+				// add normals to the vertices (reminder at this point we are in local space)
+				if (MathHelper::CheckEqual(MathHelper::MagnitudeSquared(triangle[0].norm), 0.f));
 				{
-					// transform to NDC space, then check facing to see if you can draw, then draw
-					// use 3 points of triangle to make a normal direction
-					// check the normal if it should be culled, proceed or cancel
-					for (size_t t = 0; t < triangle.size(); t++)
-					{
-						// transform all positions to NDC Space
-						triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matNDCSpace);
-					}
-
-					// triangle in NDC space, if cull mode says to cull, continue, otherwise render
-					if (CullTriangle(mCullMode, triangle))
-					{
-						continue;
-					}
-
-					// transformation pipeline (matFinal, transforms from local to screen space)
+					Vector3 faceNorm = CreateFaceNormal(triangle);
 					for (size_t t = 0; t < triangle.size(); ++t)
 					{
-						// if already in NDC space, transform again just with the remaining matrices (matScreen)
-						triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matScreen);
-						// after converting to screen space, make sure x and y are whole numbers
-						MathHelper::FlattenVectorScreenCoord(triangle[t].pos);
+						triangle[t].norm = faceNorm;
 					}
 				}
-				if (!Clipper::Get()->ClipTriangle(triangle))
+
+				// mat world to transform into world space
+				// lighting is done in world space
+				// WORLD SPACE ======================================
+				for (size_t t = 0; t < triangle.size(); ++t)
 				{
-					for (size_t t = 2; t < triangle.size(); t++)
+					// transforming all positions to world space
+					triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matWorld);
+					triangle[t].worldPos = triangle[t].pos;
+					triangle[t].norm = MathHelper::TransformNormal(triangle[t].norm, matWorld);
+				}
+
+				if (shadeMode == ShadeMode::Flat)
+				{
+					X::Color lightColor = LightManager::Get()->ComputeLightColor(triangle[0].pos, triangle[0].norm);
+					triangle[0].color *= lightColor;
+					triangle[1].color *= lightColor;
+					triangle[2].color *= lightColor;
+				}
+				else if (shadeMode == ShadeMode::Gouraud)
+				{
+					for (size_t t = 0; t < triangle.size(); ++t)
 					{
-						Rasterizer::Get()->DrawTriangle(triangle[0], triangle[t - 1], triangle[t]);
+						// apply light color to the vertices
+						triangle[t].color *= LightManager::Get()->ComputeLightColor(triangle[t].pos, triangle[t].norm);
 					}
+				}
+
+				// transform to NDC space, then check facing to see if you can draw, then draw
+				// use 3 points of triangle to make a normal direction
+				// check the normal if it should be culled, proceed or cancel
+				for (size_t t = 0; t < triangle.size(); t++)
+				{
+					// transform all positions to NDC Space
+					triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matNDCSpace);
+				}
+
+				// triangle in NDC space, if cull mode says to cull, continue, otherwise render
+				if (CullTriangle(mCullMode, triangle))
+				{
+					continue;
+				}
+
+				// transformation pipeline (matFinal, transforms from local to screen space)
+				for (size_t t = 0; t < triangle.size(); ++t)
+				{
+					// if already in NDC space, transform again just with the remaining matrices (matScreen)
+					triangle[t].pos = MathHelper::TransformCoord(triangle[t].pos, matScreen);
+					// after converting to screen space, make sure x and y are whole numbers
+					MathHelper::FlattenVectorScreenCoord(triangle[t].pos);
+				}
+			}
+			if (!Clipper::Get()->ClipTriangle(triangle))
+			{
+				for (size_t t = 2; t < triangle.size(); t++)
+				{
+					Rasterizer::Get()->DrawTriangle(triangle[0], triangle[t - 1], triangle[t]);
 				}
 			}
 		}
-		break;
-		default:;
-		}
+	}
+	break;
+	default:;
+	}
 }

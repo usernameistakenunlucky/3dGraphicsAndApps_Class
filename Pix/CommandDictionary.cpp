@@ -17,6 +17,10 @@
 #include "CmdCamera.h"
 #include "CmdSetCullMode.h"
 #include "CmdEnableDepth.h"
+#include "CmdMaterial.h"
+#include "CmdLights.h"
+#include "CmdSetShadeMode.h"
+#include "CmdModel.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -44,6 +48,7 @@ CommandDictionary::CommandDictionary()
 
 	RegisterCommand<CmdDrawPixel>();
 	RegisterCommand<CmdDrawPixels>();
+	RegisterCommand<CmdSetShadeMode>();
 
 	// primitive commands
 	RegisterCommand<CmdBeginDraw>();
@@ -51,6 +56,7 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdVertex>();
 	RegisterCommand<CmdSetFillMode>();
 	RegisterCommand<CmdSetCullMode>();
+	RegisterCommand<CmdModel>();
 	
 	// Matrix Stack commands
 	RegisterCommand<CmdPushTranslation>();
@@ -66,6 +72,22 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetCameraNear>();
 	RegisterCommand<CmdSetCameraFar>();
 	RegisterCommand<CmdSetCameraFOV>();
+
+	// material commands
+	RegisterCommand<CmdSetMaterialEmissive>();
+	RegisterCommand<CmdSetMaterialAmbient>();
+	RegisterCommand<CmdSetMaterialSpecular>();
+	RegisterCommand<CmdSetMaterialDiffuse>();
+	RegisterCommand<CmdSetMaterialShininess>();
+
+	// light commands
+	RegisterCommand<CmdSetLightAmbient>();
+	RegisterCommand<CmdSetLightSpecular>();
+	RegisterCommand<CmdSetLightDiffuse>();
+
+	RegisterCommand<CmdAddPointLight>();
+	RegisterCommand<CmdAddDirectionalLight>();
+	RegisterCommand<CmdAddSpotLight>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()

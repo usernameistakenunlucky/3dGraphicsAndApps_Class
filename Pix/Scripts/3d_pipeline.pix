@@ -1,6 +1,6 @@
 SetResolution(500, 500, 1)
 
-SetViewport(50, 50, 400, 400)
+SetViewport(50, 50, 400, 400, true)
 SetClipping(true)
 SetCullMode(none)
 ShowViewport(true)
@@ -45,5 +45,6 @@ Vertex(1, 1, 1, 1, 1, 0)
 Vertex(1, -1, 1, 1, 1, 0)
 
 EndDraw()
+
 
 
