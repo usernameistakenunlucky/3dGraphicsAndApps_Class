@@ -10,12 +10,16 @@ D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdLights.cpp;D:
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdMaterial.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdMaterial.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdMatrixStack.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdMatrixStack.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdModel.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdModel.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetAddressMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetAddressMode.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetClipping.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetClipping.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetColor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetColor.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetCorrectUV.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetCorrectUV.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetCullMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetCullMode.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetFillMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetFillMode.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetResolution.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetResolution.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetShadeMode.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetShadeMode.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetTexture.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetTexture.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetUseFilter.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetUseFilter.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdSetViewport.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdSetViewport.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVarBool.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVarBool.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\CmdVarFloat.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\CmdVarFloat.obj
@@ -36,6 +40,8 @@ D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\PrimitivesManage
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Rasterizer.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Rasterizer.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\ScriptParser.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\ScriptParser.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\TextEditor.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\TextEditor.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Texture.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Texture.obj
+D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\TextureManager.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\TextureManager.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\VariableCache.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\VariableCache.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\Viewport.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\Viewport.obj
 D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\WinMain.cpp;D:\lasalle\term05\3dGraphicsAndApps\3dGraphicsAndApps_Class\Pix\x64\Debug\WinMain.obj

@@ -26,6 +26,7 @@ public:
 	static PrimitivesManager* Get();
 
 	void OnNewFrame();
+	void SetCorrectUV(bool correctUV);
 	void SetCullMode(CullMode mode);
 
 	// Start Acceopting Vertices
@@ -46,4 +47,5 @@ private:
 	CullMode mCullMode = CullMode::None;
 	bool _drawBegin = false;
 	bool mApplyTransform = false;
+	bool mCorrectUV = false;
 };

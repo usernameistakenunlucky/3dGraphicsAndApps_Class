@@ -1,6 +1,7 @@
 #include "Rasterizer.h"
 #include "DepthBuffer.h"
 #include "LightManager.h"
+#include "TextureManager.h"
 
 // a function for drawing a line where the slope is <= 1
 // left is the small x position, right is the highest x position
@@ -67,7 +68,7 @@ void Rasterizer::DrawPoint(const Vertex& v)
 	// if screen pos (x, y) has a closer z value, render, otherwise skip
 	if (DepthBuffer::Get()->CheckDepthBuffer(v.pos.x, v.pos.y, v.pos.z))
 	{
-		X::Color pixelColor = v.color;
+		X::Color pixelColor = TextureManager::Get()->SampleColor(v.color);
 		if (mShadeMode == ShadeMode::Phong)
 		{
 			pixelColor *= LightManager::Get()->ComputeLightColor(v.worldPos, v.norm);

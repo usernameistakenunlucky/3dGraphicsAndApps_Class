@@ -21,6 +21,10 @@
 #include "CmdLights.h"
 #include "CmdSetShadeMode.h"
 #include "CmdModel.h"
+#include "CmdSetTexture.h"
+#include "CmdSetCorrectUV.h"
+#include "CmdSetUseFilter.h"
+#include "CmdSetAddressMode.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -80,6 +84,10 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetMaterialDiffuse>();
 	RegisterCommand<CmdSetMaterialShininess>();
 
+	RegisterCommand<CmdSetTexture>();
+	RegisterCommand<CmdSetCorrectUV>();
+	RegisterCommand<CmdSetUseFilter>();
+
 	// light commands
 	RegisterCommand<CmdSetLightAmbient>();
 	RegisterCommand<CmdSetLightSpecular>();
@@ -88,6 +96,11 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdAddPointLight>();
 	RegisterCommand<CmdAddDirectionalLight>();
 	RegisterCommand<CmdAddSpotLight>();
+
+
+
+
+	RegisterCommand<CmdSetAddressMode>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()

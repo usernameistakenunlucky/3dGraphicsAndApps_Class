@@ -67,11 +67,17 @@ PrimitivesManager* PrimitivesManager::Get()
 void PrimitivesManager::OnNewFrame()
 {
 	mCullMode = CullMode::Back;
+	mCorrectUV = false;
 }
 
 void PrimitivesManager::SetCullMode(CullMode mode)
 {
 	mCullMode = mode;
+}
+
+void PrimitivesManager::SetCorrectUV(bool correctUV)
+{
+	mCorrectUV = correctUV;
 }
 
 bool PrimitivesManager::BeginDraw(Topology topology, bool applyTransform)
@@ -170,22 +176,42 @@ void PrimitivesManager::EndDraw()
 					triangle[t].norm = MathHelper::TransformNormal(triangle[t].norm, matWorld);
 				}
 
-				if (shadeMode == ShadeMode::Flat)
+				// do not do flat / gouraud shading if color is UV (color.z < 0.f)
+				if (triangle[0].color.z >= 0.f)
 				{
-					X::Color lightColor = LightManager::Get()->ComputeLightColor(triangle[0].pos, triangle[0].norm);
-					triangle[0].color *= lightColor;
-					triangle[1].color *= lightColor;
-					triangle[2].color *= lightColor;
-				}
-				else if (shadeMode == ShadeMode::Gouraud)
-				{
-					for (size_t t = 0; t < triangle.size(); ++t)
+					// lighting shade modes (flat and gouraud are done in primitives, phon is done rasterizer)
+					if (shadeMode == ShadeMode::Flat)
 					{
-						// apply light color to the vertices
-						triangle[t].color *= LightManager::Get()->ComputeLightColor(triangle[t].pos, triangle[t].norm);
+						X::Color lightColor = LightManager::Get()->ComputeLightColor(triangle[0].pos, triangle[0].norm);
+						triangle[0].color *= lightColor;
+						triangle[1].color *= lightColor;
+						triangle[2].color *= lightColor;
+					}
+					else if (shadeMode == ShadeMode::Gouraud)
+					{
+						for (size_t t = 0; t < triangle.size(); ++t)
+						{
+							// apply light color to the vertices
+							triangle[t].color *= LightManager::Get()->ComputeLightColor(triangle[t].pos, triangle[t].norm);
+						}
 					}
 				}
-
+				// if correct uv, prep uv calculation
+				else if (mCorrectUV)
+				{
+					// apply correct uv in ViewSpace
+					// go from WorldSpace to ViewSpace
+					// already in world space so multiply by matView
+					for (uint32_t t = 0; t < triangle.size(); ++t)
+					{
+						Vector3 viewSpace = MathHelper::TransformCoord(triangle[t].worldPos, matView);
+						triangle[t].color.x /= viewSpace.z;
+						triangle[t].color.y /= viewSpace.z;
+						triangle[t].color.w = 1.0f / viewSpace.z;
+					}
+				}
+				
+				// NDC SPACE ======================================
 				// transform to NDC space, then check facing to see if you can draw, then draw
 				// use 3 points of triangle to make a normal direction
 				// check the normal if it should be culled, proceed or cancel

@@ -1,4 +1,5 @@
 #include "Model.h"
+#include "Texture.h"
 
 void Model::Load(const std::string& fileName)
 {
